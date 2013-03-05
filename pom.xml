@@ -8,13 +8,14 @@
     <groupId>com.myzone.utils</groupId>
     <artifactId>statemachine</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>statemachine</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
+        <intellij-annotations-version>9.0.4</intellij-annotations-version>
         <slf4j-version>1.7.2</slf4j-version>
 
         <junit-version>4.11</junit-version>
@@ -22,6 +23,13 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.intellij</groupId>
+            <artifactId>annotations</artifactId>
+            <version>${intellij-annotations-version}</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>

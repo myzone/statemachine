@@ -1,5 +1,6 @@
 package com.myzone.utils.statemachine;
 
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,7 +20,7 @@ public class EventStateMachine<S> implements StateMachine<S> {
     protected final State.Factory<S> stateFactory;
     protected final BlockingQueue<S> stimulusesQueue;
 
-    public EventStateMachine(State.Factory<S> stateFactory) {
+    public EventStateMachine(@NotNull State.Factory<S> stateFactory) {
         this.stateFactory = stateFactory;
         this.stimulusesQueue = new ArrayBlockingQueue<>(SIGNAL_QUEUE_LENGTH);
     }
@@ -46,7 +47,7 @@ public class EventStateMachine<S> implements StateMachine<S> {
     }
 
     @Override
-    public void process(S signal) {
+    public void process(@NotNull S signal) {
         stimulusesQueue.add(signal);
     }
 }

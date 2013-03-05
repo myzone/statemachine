@@ -1,5 +1,6 @@
 package com.myzone.utils.statemachine;
 
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,7 +14,7 @@ public class TestingEventStateMachine<S> extends EventStateMachine<S> {
 
     private static final Logger logger = LoggerFactory.getLogger(TestingEventStateMachine.class);
 
-    public TestingEventStateMachine(State.Factory<S> stateFactory) {
+    public TestingEventStateMachine(@NotNull State.Factory<S> stateFactory) {
         super(stateFactory);
     }
 
@@ -45,7 +46,8 @@ public class TestingEventStateMachine<S> extends EventStateMachine<S> {
         return stimulusesLeft + 1;
     }
 
-    public S[] run(S... stimuluses) {
+    @NotNull
+    public S[] run(@NotNull S... stimuluses) {
         for(S stimulus : stimuluses) {
             process(stimulus);
         }

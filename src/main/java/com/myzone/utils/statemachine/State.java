@@ -1,6 +1,6 @@
 package com.myzone.utils.statemachine;
 
-import java.util.List;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author: myzone
@@ -8,18 +8,15 @@ import java.util.List;
  */
 public interface State<S> {
 
-    State<S> react(S stimulus);
-
-    default void asd(S... ses) {
-        for (S s : ses) {
-            react(s);
-        }
-    }
+    @NotNull
+    State<S> react(@NotNull S stimulus);
 
     interface Factory<S> {
 
+        @NotNull
         State<S> getStartState();
 
+        @NotNull
         State<S> getEndState();
 
     }
